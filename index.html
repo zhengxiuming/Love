@@ -71,11 +71,23 @@
         </div>
         <canvas id="canvas" width="1100" height="680"></canvas>
     </div>
-    <audio src="" autoplay="autoplay"></audio>
+    <audio id="myAudio" src="./media/love.mp3"></audio>
 </div>
 <script>
     (function(){
         var canvas=$("#canvas");
+        var canvasBtn=document.getElementById("canvas");
+        var myAudio=document.getElementById("myAudio");
+        canvasBtn.onclick = function(){
+            if (myAudio.paused) {
+                myAudio.play();
+                myAudio.id="audio-btn";
+            }
+            else {
+                myAudio.pause();
+                myAudio.id="";
+            }
+        };
         if(!canvas[0].getContext){
             $("#error").show();
             return false;
